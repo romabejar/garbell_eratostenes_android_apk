@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -57,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
     int seguent_multiple;
     int multiples_restants;
     int duration = 2000;
+    TextView text;
+    String informacio;
+    boolean already_shown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         valids[0] = Boolean.FALSE;
         valids[1] = Boolean.FALSE;
         multiples_restants = -1;
+        text = (TextView)findViewById(R.id.textView_primers_trobats);
+        informacio = "Primers trobats: ";
+        text.setText(informacio);
     }
 
     int count_valid_multiples(int n) {
@@ -80,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return count;
+    }
+
+    public void onFinalitzarClick(View view) {
+        MainActivity.this.finish();
+        System.exit(0);
     }
 
     public void onNumberClick(View view) {
@@ -93,13 +105,25 @@ public class MainActivity extends AppCompatActivity {
                 if (n != prime_numbers.get(index_seguent_primer)) {
                     Snackbar.make(findViewById(android.R.id.content), "Aquest no és el següent nombre primer a trobar", duration ).show();
                 } else {
-                    Snackbar.make(findViewById(android.R.id.content), "Molt bé! El 2 és el següent nombre primer, ara elimina tots els seus múltiples", duration ).show();
                     mode = Modes.TATXAR_MULTIPLES;
-                    primer_trobat = prime_numbers.get(primer_trobat);
+                    already_shown = false;
+                    primer_trobat = prime_numbers.get(index_seguent_primer);
                     seguent_multiple = primer_trobat + primer_trobat;
                     number.setBackgroundColor(getResources().getColor(R.color.Green));
                     number.setEnabled(false);
                     multiples_restants = count_valid_multiples(primer_trobat);
+                    if (multiples_restants != 0) {
+                        Snackbar.make(findViewById(android.R.id.content), "Molt bé! El " + String.valueOf(n) + " és el següent nombre primer, ara elimina tots els seus múltiples", duration ).show();
+                    } else {
+                        Snackbar.make(findViewById(android.R.id.content), "Molt bé! El " + String.valueOf(n) + " és el següent nombre primer, però ja has eliminat tots els seus múltiples. Busca el següent primer.", duration ).show();
+                        already_shown = true;
+                    }
+                    informacio += String.valueOf(n);
+                    if (index_seguent_primer != prime_numbers.size()-1) {
+                        informacio += ", ";
+                    } else {
+                        informacio += ".";
+                    }
                 }
                 break;
             case TATXAR_MULTIPLES:
@@ -117,7 +141,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (multiples_restants == 0 && mode != Modes.TROBAR_PRIMER) {
             mode = Modes.TROBAR_PRIMER;
-            Snackbar.make(findViewById(android.R.id.content), "Molt bé! Ja has eliminat tots els múltiples de " + String.valueOf(primer_trobat), duration ).show();
+            multiples_restants = -1;
+            if (!already_shown) {
+                Snackbar.make(findViewById(android.R.id.content), "Molt bé! Ja has eliminat tots els múltiples de " + String.valueOf(primer_trobat), duration).show();
+            }
             ++index_seguent_primer;
         }
 
@@ -125,5 +152,6 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(findViewById(android.R.id.content), "Has trobat tots els nombres primers d'aquesta llista!", duration).show();
         }
 
+        text.setText(informacio);
     }
 }

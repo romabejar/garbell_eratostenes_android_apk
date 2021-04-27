@@ -15,6 +15,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -874,91 +876,92 @@
                     android:onClick="onNumberClick"
                     android:text="90" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button091"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="91" />
+                    android:text="91"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button092"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="92" />
+                    android:text="92"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button093"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="93" />
+                    android:text="93"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button094"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="94" />
+                    android:text="94"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button095"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="95" />
+                    android:text="95"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button096"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="96" />
+                    android:text="96"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button097"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="97" />
+                    android:text="97"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button098"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="98" />
+                    android:text="98"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button099"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onNumberClick"
-                    android:text="99" />
+                    android:text="99"
+                    app:backgroundTint="@color/Blue" />
 
                 <Button
                     android:id="@+id/button100"
@@ -969,6 +972,24 @@
                     android:text="100"
                     app:backgroundTint="@color/Blue" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView_primers_trobats"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:gravity="top"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:onClick="onFinalitzarClick"
+                android:text="Finalitzar!"
+                />
         </LinearLayout>
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
