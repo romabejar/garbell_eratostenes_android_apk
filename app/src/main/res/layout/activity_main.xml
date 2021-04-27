@@ -962,11 +962,12 @@
 
                 <Button
                     android:id="@+id/button100"
-                    app:backgroundTint="@color/Blue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="100" />
+                    android:onClick="onNumberClick"
+                    android:text="100"
+                    app:backgroundTint="@color/Blue" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
